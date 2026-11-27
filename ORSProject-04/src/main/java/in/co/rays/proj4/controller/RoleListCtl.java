@@ -7,10 +7,15 @@ import jakarta.servlet.http.HttpServletRequest;
 
 @WebServlet("/RoleListCtl")
 public class RoleListCtl extends BaseListCtl<RoleBean, RoleModel> {
-	
+
 	@Override
 	public RoleBean populateBean(HttpServletRequest request) {
-		return super.populateBean(request);
+		RoleBean bean = new RoleBean();
+
+		bean.setName(request.getParameter("name"));
+		bean.setDescription(request.getParameter("description"));
+
+		return bean;
 	}
 
 	@Override
@@ -22,9 +27,5 @@ public class RoleListCtl extends BaseListCtl<RoleBean, RoleModel> {
 	protected RoleModel getModel() {
 		return new RoleModel();
 	}
-
-	
-	
-	
 
 }
